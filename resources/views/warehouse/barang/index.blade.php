@@ -7,6 +7,7 @@
         <div class="relative bg-white shadow-md dark:bg-gray-800 sm:rounded-lg">
             <div class="flex flex-col items-center justify-between p-4 space-y-3 md:flex-row md:space-y-0 md:space-x-4">
                 <div class="w-full md:w-1/2">
+                    <h1 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Barang</h1>
                     <form class="flex items-center">
                         <label for="simple-search" class="sr-only">Search</label>
                         <div class="relative w-full">
@@ -20,7 +21,7 @@
                     </form>
                 </div>
                 <div class="flex flex-col items-stretch justify-end flex-shrink-0 w-full space-y-2 md:w-auto md:flex-row md:space-y-0 md:items-center md:space-x-3">
-                    <a href="{{ route('warehouse.gudang.add') }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    <a href="{{ route('warehouse.barang.add') }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-green-500 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
                         Tambah
                     </a>
                     <div class="flex items-center w-full space-x-3 md:w-auto">
@@ -154,7 +155,7 @@
                     <td class="p-2 items-left justify-left hidden col-span-1 space-x-2 sm:flex">
                         <button data-tooltip-target="icons-example-mobile-tooltip" class="flex items-center justify-center w-9 h-9 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-mobile-view hover:bg-blue-500 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
 
-                            <a href="{{ route('warehouse.gudang.add') }}">
+                            <a href="{{ route('warehouse.barang.detail') }}">
                                 <span  class="sr-only">View</span>
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4 6-9 6s-9-4.8-9-6c0-1.2 4-6 9-6s9 4.8 9 6Z"/>
@@ -163,7 +164,7 @@
                             </a>
                         </button>
                         <button data-tooltip-target="icons-example-mobile-tooltip" class="flex items-center justify-center w-9 h-9 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-mobile-view hover:bg-yellow-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                            <a href="{{ route('warehouse.gudang.edit') }}">
+                            <a href="{{ route('warehouse.barang.edit') }}">
                                 <span class="sr-only"></span>
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10.8 17.8-6.4 2.1 2.1-6.4m4.3 4.3L19 9a3 3 0 0 0-4-4l-8.4 8.6m4.3 4.3-4.3-4.3m2.1 2.1L15 9.1m-2.1-2 4.2 4.2"/>

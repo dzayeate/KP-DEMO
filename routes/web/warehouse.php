@@ -11,7 +11,12 @@ Route::namespace('App\Http\Controllers\Warehouse')->group(function () {
         });
 
         route::name('barang.')->group(function () {
-            Route::get('/barang', "BarangController@index")->name('index');
+            Route::prefix('barang')->group(function () {
+                Route::get('/', "BarangController@index")->name('index');
+                Route::get('/tambah', "BarangController@add")->name('add');
+                Route::get('/edit', "BarangController@edit")->name('edit');
+                Route::get('/detail', "BarangController@detail")->name('detail');
+            });
         });
 
         route::name('dashboard.')->group(function () {
