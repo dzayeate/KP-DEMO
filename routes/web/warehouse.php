@@ -19,6 +19,15 @@ Route::namespace('App\Http\Controllers\Warehouse')->group(function () {
             });
         });
 
+        route::name('transfer-gudang.')->group(function () {
+            Route::prefix('transfer-gudang')->group(function () {
+                Route::get('/', "TransferGudangController@index")->name('index');
+                Route::get('/tambah', "TransferGudangController@add")->name('add');
+                Route::get('/edit', "TransferGudangController@edit")->name('edit');
+                Route::get('/detail', "TransferGudangController@detail")->name('detail');
+            });
+        });
+
         route::name('dashboard.')->group(function () {
             Route::get('/', "DashboardController@index")->name('index');
         });
