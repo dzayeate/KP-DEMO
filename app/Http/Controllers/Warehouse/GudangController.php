@@ -26,7 +26,7 @@ class GudangController extends Controller
         $data->nama_gudang = $request->nama_gudang;
         $data->status = $request->status;
         $data->save();
-        return back();
+        return redirect()->route('warehouse.gudang.index');
     }
 
 
@@ -43,8 +43,8 @@ class GudangController extends Controller
         $data->kode_gudang = $request->kode_gudang;
         $data->nama_gudang = $request->nama_gudang;
         $data->status = $request->status;
-        $data->update();  
-        return back();
+        $data->update();
+        return redirect()->route('warehouse.gudang.index');
     }
 
     public function detail($id)
