@@ -17,8 +17,11 @@ Route::namespace('App\Http\Controllers\Warehouse')->group(function () {
             Route::prefix('barang')->group(function () {
                 Route::get('/', "BarangController@index")->name('index');
                 Route::get('/tambah', "BarangController@add")->name('add');
-                Route::get('/edit', "BarangController@edit")->name('edit');
-                Route::get('/detail', "BarangController@detail")->name('detail');
+                Route::post('/store', "BarangController@tambah")->name('tambah');
+                Route::get('/edit/{id}', "BarangController@edit")->name('edit');
+                Route::put('/update/{id}', "BarangController@update")->name('update');
+                Route::get('/detail/{id}', "BarangController@detail")->name('detail');
+                Route::delete('/delete/{id}', "BarangController@delete")->name('delete');
             });
         });
 

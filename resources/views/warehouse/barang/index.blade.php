@@ -85,7 +85,7 @@
                         </th>
                         <th scope="col" class="px-6 py-3">
                             <div class="flex items-center">
-                                Kode Kode Barang
+                                 Kode Barang
                                 <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
                                     </svg></a>
@@ -131,31 +131,32 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($data as $item)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
-                            1
+                            {{ $item->id }}
                         </td>
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            ST
+                            {{ $item->kode_barang }}
                         </th>
                         <td class="px-6 py-4">
-                            Sunter
+                            {{ $item->nama_barang }}
                         </td>
                         <td class="px-6 py-4">
-                            Bahan Baku
+                            {{ $item->jenis_barang }}
                         </td>
                         <td class="px-6 py-4">
                             <div class="flex items-center">
-                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Ready Stock
+                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> {{ $item->status }}
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            100 PCS
+                            {{ $item->stock }}
                         </td>
                         <td class="p-2 items-left justify-left hidden col-span-1 space-x-2 sm:flex">
                             <button data-tooltip-target="icons-example-mobile-tooltip" class="flex items-center justify-center w-9 h-9 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-mobile-view hover:bg-blue-500 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
 
-                                <a href="{{ route('warehouse.barang.detail') }}">
+                                <a href="{{ route('warehouse.barang.detail', ['id' => $item->id]) }}">
                                     <span  class="sr-only">View</span>
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-width="2" d="M21 12c0 1.2-4 6-9 6s-9-4.8-9-6c0-1.2 4-6 9-6s9 4.8 9 6Z"/>
@@ -164,7 +165,7 @@
                                 </a>
                             </button>
                             <button data-tooltip-target="icons-example-mobile-tooltip" class="flex items-center justify-center w-9 h-9 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-mobile-view hover:bg-yellow-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                                <a href="{{ route('warehouse.barang.edit') }}">
+                                <a href="{{ route('warehouse.barang.edit', ['id' => $item->id]) }}">
                                     <span class="sr-only"></span>
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10.8 17.8-6.4 2.1 2.1-6.4m4.3 4.3L19 9a3 3 0 0 0-4-4l-8.4 8.6m4.3 4.3-4.3-4.3m2.1 2.1L15 9.1m-2.1-2 4.2 4.2"/>
@@ -193,9 +194,13 @@
                                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                                             </svg>
                                             <p class=" pb-4 text-sm text-gray-400 dark:text-gray-300">Apakah Anda yakin ingin menghapus data ini? Tindakan ini tidak dapat diurungkan.</p>
-                                            <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
+                                            <form action="{{ route('warehouse.barang.delete', ['id' => $item->id]) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button data-modal-hide="popup-modal" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
                                                 OK, Hapus
-                                            </button>
+                                                </button>
+                                            </form>
                                             <button data-modal-hide="popup-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Tidak</button>
                                         </div>
                                     </div>
@@ -204,6 +209,7 @@
 
                         </td>
                     </tr>
+                    @endforeach
 
 
                     </tbody>

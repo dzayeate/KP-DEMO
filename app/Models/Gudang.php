@@ -14,4 +14,9 @@ class Gudang extends Model
         'nama_gudang',
         'status'
     ];
+
+    public function barang()
+    {
+        return $this->hasMany(Barang::class);
+    }
 }
