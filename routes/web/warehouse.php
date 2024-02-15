@@ -5,8 +5,11 @@ Route::namespace('App\Http\Controllers\Warehouse')->group(function () {
             Route::prefix('gudang')->group(function () {
                 Route::get('/', "GudangController@index")->name('index');
                 Route::get('/tambah', "GudangController@add")->name('add');
-                Route::get('/edit', "GudangController@edit")->name('edit');
-                Route::get('/detail', "GudangController@detail")->name('detail');
+                Route::post('/store', "GudangController@store")->name('tambah');
+                Route::get('/edit/{id}', "GudangController@edit")->name('edit');
+                Route::put('/update/{id}', "GudangController@update")->name('update');
+                Route::get('/detail/{id}', "GudangController@detail")->name('detail');
+                Route::delete('/delete/{id}', "GudangController@delete")->name('delete');
             });
         });
 
