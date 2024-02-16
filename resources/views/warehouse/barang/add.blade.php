@@ -48,13 +48,12 @@
                             </select>
                         </div>
                         <div class="w-full">
-                            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lokasi Barang</label>
-                            <select id="countries" name="jenis_barang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-
-                                <option value="Bahan Baku">Soreang</option>
-                                <option value="Barang Setengah Jadi">Setibudi</option>
-                                <option value="Barang Jadi">Jakaeta</option>
-                                <option value="Jasa">Bali</option>
+                            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Gudang</label>
+                            <select id="gudang" name="gudang_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="">Pilih Gudang</option>
+                                @foreach($gudang as $wh)
+                                <option value="{{ $wh->id }}">{{ $wh->nama_gudang }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="sm:col-span-2">

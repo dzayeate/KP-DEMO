@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Warehouse;
 use App\Models\Barang;
+use App\Models\Gudang;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class BarangController extends Controller
 
     public function add()
     {
-        return view('warehouse.barang.add');
+        $gudang = Gudang::all();
+        return view('warehouse.barang.add', compact('gudang'));
     }
 
     public function tambah(Request $request)
@@ -28,6 +30,7 @@ class BarangController extends Controller
         $barang->satuan = $request->satuan;
         $barang->status = $request->status;
         $barang->keterangan = $request->keterangan;
+        $barang->gudang_id = $request->gudang_id;
         $barang->save();
         return redirect()->route('warehouse.barang.index');
     }
