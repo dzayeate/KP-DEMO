@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Warehouse;
 
 use App\Http\Controllers\Controller;
+use App\Models\SuratJalan;
 
 class SuratJalanController extends Controller
 {
     public function index()
     {
-       return view('warehouse.surat-jalan.index');
+        $suratJalan = SuratJalan::all();
+        return view('warehouse.surat-jalan.index', compact('suratJalan'));
     }
 
     public function add()

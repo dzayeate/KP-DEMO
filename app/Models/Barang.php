@@ -22,4 +22,9 @@ class Barang extends Model
     {
         return $this->belongsTo(Gudang::class);
     }
+
+    public function transferItem()
+    {
+        return $this->hasMany(TransferItem::class);
+    }
 }
