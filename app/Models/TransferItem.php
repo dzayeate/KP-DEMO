@@ -13,4 +13,14 @@ class TransferItem extends Model
         'transfer_id',
         'barang_id',
     ];
+
+    public function transfer()
+    {
+        return $this->belongsTo(Transfer::class);
+    }
+
+    public function barang()
+    {
+        return $this->belongsTo(Barang::class);
+    }
 }

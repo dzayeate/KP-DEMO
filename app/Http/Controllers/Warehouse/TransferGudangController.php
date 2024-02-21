@@ -5,6 +5,7 @@ use App\Models\Transfer;
 use App\Models\TransferItem;
 use App\Models\Gudang;
 use App\Models\Barang;
+use App\Models\SuratJalan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class TransferGudangController extends Controller
 {
     public function index()
     {
-        return view('warehouse.transfer-gudang.index');
+        $transfer = Transfer::with('barangTransfer.barang')->get();
+        return view('warehouse.transfer-gudang.index', compact('transfer'));
     }
 
     public function add()
@@ -58,6 +60,19 @@ class TransferGudangController extends Controller
         $barang->gudang_id = $gudangTujuan->id;
         $barang->update();
     }
+
+    //tambahkan surat jalan
+    $suratTerakhir = SuratJalan::latest()->first();
+    if(!$suratTerakhir){
+        $no_surat_jalan = 'SJ-'.date('Ymd').'001';
+    }else{
+        $angkaterakhir = (int)substr($suratTerakhir->no_surat_jalan, 11) + 1;
+        $no_surat_jalan = 'SJ-'.date('Ymd').str_pad($angkaterakhir, 3, '0', STR_PAD_LEFT);
+    }
+    $surat_jalan = new SuratJalan();
+    $surat_jalan->no_surat_jalan = $no_surat_jalan;
+    $surat_jalan->no_bukti_transfer_gudang = $request->no_bukti;
+    $surat_jalan->save();
 
         return redirect()->route('warehouse.transfer-gudang.index');
     }

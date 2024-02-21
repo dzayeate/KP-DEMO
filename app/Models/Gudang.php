@@ -19,4 +19,14 @@ class Gudang extends Model
     {
         return $this->hasMany(Barang::class);
     }
+
+    public function transferAsal()
+    {
+        return $this->hasMany(Transfer::class, 'gudang_asal_id');
+    }
+
+    public function transferTujuan()
+    {
+        return $this->hasMany(Transfer::class, 'gudang_tujuan_id');
+    }
 }

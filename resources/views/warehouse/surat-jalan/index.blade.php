@@ -115,23 +115,24 @@
                     </tr>
                     </thead>
                     <tbody>
+                        @foreach($suratJalan as $item)
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                             <td class="px-6 py-4">
-                                <p>1</p>
+                                <p>{{ $loop->iteration }}</p>
 
                             </td>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                <h1>Test</h1>
+                                <h1>{{ $item->no_surat_jalan }}</h1>
 
                             </th>
                             <td class="px-6 py-4">
-                                <h1>Test</h1>
+                                <h1>{{ $item->no_bukti_transfer_gudang }}</h1>
 
                             </td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
                                     <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                                    <h1>Tervalidasi</h1>
+                                    <h1>{{ $item->status }}</h1>
                                 </div>
                             </td>
 
@@ -191,6 +192,7 @@
 
                             </td>
                         </tr>
+                        @endforeach
 
 
 
