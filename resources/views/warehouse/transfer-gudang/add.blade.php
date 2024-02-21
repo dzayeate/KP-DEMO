@@ -10,7 +10,7 @@
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="w-full">
                             <label for="brand" class="flex items-center block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Bukti <div class="m-2 h-2.5 w-2.5 rounded-full bg-red-600 me-2"></div></label>
-                            <input type="text" name="no_bukti" value="{{ $no_bukti }}" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Nama Gudang" required="">
+                            <input type="text" name="no_bukti" value="{{ $no_bukti }}" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="No Bukti" required="" >
                         </div>
                         <div class="w-full">
                             <label for="brand" class="flex items-center block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Transfer <div class="m-2 h-2.5 w-2.5 rounded-full bg-red-600 me-2"></div></label>
@@ -34,7 +34,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        
+
                         <div class="w-full">
                             <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gudang Tujuan</label>
                             <select id="gudangTujuan" name="gudang_tujuan_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -59,19 +59,13 @@
                                             </svg>
                                             Update stocks 1/250
                                         </button>
-                                        <button type="button" class="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
-                                            <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                                            </svg>
-                                            Export
-                                        </button>
                                     </div>
                                 </div>
                                 <div class="overflow-x-auto">
                                     <table id="barang-table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                         <tr>
-                                            
+
                                             <th scope="col" class="px-4 py-3">No</th>
                                             <th scope="col" class="px-4 py-3">Nama Barang</th>
                                             <th scope="col" class="px-4 py-3">Qty</th>
@@ -87,14 +81,13 @@
                                 </div>
                             </div>
                         </div>
-
-                                <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
-              <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                  Showing
-                  <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
-                  of
-                  <span class="font-semibold text-gray-900 dark:text-white">1000</span>
-              </span>
+                        <nav class="flex flex-col items-start justify-between p-4 space-y-3 md:flex-row md:items-center md:space-y-0" aria-label="Table navigation">
+                                      <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                                          Showing
+                                          <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
+                                          of
+                                          <span class="font-semibold text-gray-900 dark:text-white">1000</span>
+                                      </span>
                                     <ul class="inline-flex items-stretch -space-x-px">
                                         <li>
                                             <a href="#" class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -128,16 +121,16 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </nav>
+                        </nav>
                             </div>
 
-                        </div>
+
                         <div class="flex items-center space-x-4">
                             <button type="submit" class=" text-green-500 inline-flex items-center hover:text-white border border-green-500 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-500">
                                 Simpan
                             </button>
                         </div>
-                    </div>
+
 
                 </form>
             </div>

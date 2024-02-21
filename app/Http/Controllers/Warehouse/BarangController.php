@@ -50,6 +50,7 @@ class BarangController extends Controller
         $barang->stock = $request->stock;
         $barang->satuan = $request->satuan;
         $barang->status = $request->status;
+        $barang->gudang_id = $request->gudang_id;
         $barang->keterangan = $request->keterangan;
         $barang->update();
         return redirect()->route('warehouse.barang.index');

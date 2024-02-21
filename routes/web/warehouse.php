@@ -36,6 +36,15 @@ Route::namespace('App\Http\Controllers\Warehouse')->group(function () {
             });
         });
 
+        route::name('surat-jalan.')->group(function () {
+            Route::prefix('surat-jalan')->group(function () {
+                Route::get('/', "SuratJalanController@index")->name('index');
+                Route::get('/tambah', "SuratJalanController@add")->name('add');
+                Route::get('/edit', "SuratJalanController@add")->name('edit');
+
+            });
+        });
+
         route::name('dashboard.')->group(function () {
             Route::get('/', "DashboardController@index")->name('index');
         });

@@ -31,7 +31,7 @@
                         <a href="{{ route('warehouse.transfer-gudang.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Transfer Gudang</a>
                     </li>
                     <li>
-                        <a href="{{ route('warehouse.gudang.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Surat Jalan</a>
+                        <a href="{{ route('warehouse.surat-jalan.index') }}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Surat Jalan</a>
                     </li>
                 </ul>
             </li>
