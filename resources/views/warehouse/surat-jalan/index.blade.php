@@ -82,6 +82,8 @@
                                 <div class="flex items-center">
                                     <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
                                     <h1>{{ $item->status }}</h1>
+                                    <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>
+                                    <h1>{{ $item->status }}</h1>
                                 </div>
                             </td>
 

@@ -119,7 +119,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    
+
                 @foreach($data as $item)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
@@ -134,6 +134,7 @@
                         <td class="px-6 py-4">
                             <div class="flex items-center">
                                 <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> {{ $item->status }}
+                                <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> {{ $item->status }}
                             </div>
                         </td>
                         <td class=" p-2 items-left justify-left hidden col-span-1 space-x-2 sm:flex">
