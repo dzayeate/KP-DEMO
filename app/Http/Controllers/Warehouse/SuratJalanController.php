@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Warehouse;
 
 use App\Http\Controllers\Controller;
+use App\Models\Barang;
 use App\Models\SuratJalan;
 
 class SuratJalanController extends Controller
@@ -38,6 +39,13 @@ class SuratJalanController extends Controller
         $suratJalan = SuratJalan::find($id);
         $suratJalan->status = 'Batal';
         $suratJalan->save();
+
+
+        foreach($suratJalan->transfer->barangTransfer as $item){
+                $barang = Barang::find($item->barang_id);
+                $barang->gudang_id = $suratJalan->transfer->gudang_asal_id;
+                $barang->update();
+        }
 
         return redirect()->route('warehouse.surat-jalan.index');
     }

@@ -30,4 +30,9 @@ class Transfer extends Model
     {
         return $this->hasMany(TransferItem::class);
     }
+
+    public function suratJalan()
+    {
+        return $this->hasOne(SuratJalan::class, 'no_bukti_transfer_gudang', 'no_bukti');
+    }
 }
