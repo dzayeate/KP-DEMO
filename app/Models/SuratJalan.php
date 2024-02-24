@@ -14,4 +14,9 @@ class SuratJalan extends Model
         'no_bukti_transfer_gudang',
         'status'
     ];
+
+    public function transfer()
+    {
+        return $this->belongsTo(Transfer::class, 'no_bukti_transfer_gudang', 'no_bukti');
+    }
 }
