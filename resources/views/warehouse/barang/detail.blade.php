@@ -4,7 +4,7 @@
     <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
         <section class="bg-white dark:bg-gray-900">
             <div class="py-4 px-4">
-                <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Edit Barang</h2>
+                <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Detail Barang</h2>
                 <form action="{{ route('warehouse.barang.update', ['id' => $data->id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -49,7 +49,7 @@
                             </select>
                         </div>
                         <div class="w-full">
-                            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lokasi Barang</label>
+                            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gudang</label>
                             <select id="gudang" name="gudang_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disa" disabled>
                                 <option value="">Pilih Gudang</option>
                             </select>

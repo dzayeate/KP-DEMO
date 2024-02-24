@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('no_surat_jalan');
             $table->string('no_bukti_transfer_gudang');
-            $table->enum('status', ['tervalidasi', 'batal', 'pending'])->default('pending');
+            $table->enum('status', ['Tervalidasi', 'Batal', 'Pending'])->default('Pending');
             $table->timestamps();
         });
     }

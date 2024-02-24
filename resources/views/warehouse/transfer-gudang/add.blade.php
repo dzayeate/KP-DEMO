@@ -10,7 +10,7 @@
                     <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div class="w-full">
                             <label for="brand" class="flex items-center block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Bukti <div class="m-2 h-2.5 w-2.5 rounded-full bg-red-600 me-2"></div></label>
-                            <input type="text" name="no_bukti" value="{{ $no_bukti }}" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="No Bukti" required="" >
+                            <input type="text" name="no_bukti" value="{{ $no_bukti }}" id="brand" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="No Bukti" required="" readonly>
                         </div>
                         <div class="w-full">
                             <label for="brand" class="flex items-center block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal Transfer <div class="m-2 h-2.5 w-2.5 rounded-full bg-red-600 me-2"></div></label>
