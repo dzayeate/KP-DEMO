@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('no_bukti');
             $table->date('tanggal');
-            $table->foreignId('gudang_asal_id')->constrained('gudangs');
-            $table->foreignId('gudang_tujuan_id')->constrained('gudangs');
+            $table->foreignId('gudang_asal_id')->constrained('gudangs')->onDelete('cascade');
+            $table->foreignId('gudang_tujuan_id')->constrained('gudangs')->onDelete('cascade');
             $table->timestamps();
         });
     }

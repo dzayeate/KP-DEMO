@@ -12,6 +12,7 @@ class SuratJalanController extends Controller
         $suratJalan = SuratJalan::all();
         return view('warehouse.surat-jalan.index', compact('suratJalan'));
     }
+    
 
     public function add()
     {
@@ -22,4 +23,23 @@ class SuratJalanController extends Controller
     {
         return view('warehouse.surat-jalan.edit');
     }
+
+    public function validStatus($id)
+    {
+        $suratJalan = SuratJalan::find($id);
+        $suratJalan->status = 'Tervalidasi';
+        $suratJalan->save();
+
+        return redirect()->route('warehouse.surat-jalan.index');
+    }
+
+    public function batalStatus($id)
+    {
+        $suratJalan = SuratJalan::find($id);
+        $suratJalan->status = 'Batal';
+        $suratJalan->save();
+
+        return redirect()->route('warehouse.surat-jalan.index');
+    }
+    
 }

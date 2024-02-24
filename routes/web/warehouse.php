@@ -41,6 +41,9 @@ Route::namespace('App\Http\Controllers\Warehouse')->group(function () {
                 Route::get('/', "SuratJalanController@index")->name('index');
                 Route::get('/tambah', "SuratJalanController@add")->name('add');
                 Route::get('/edit', "SuratJalanController@add")->name('edit');
+                Route::get('/detail', "SuratJalanController@add")->name('detail');
+                Route::put('/valid-status/{id}', "SuratJalanController@validStatus")->name('validStatus');
+                Route::put('/batal-status/{id}', "SuratJalanController@batalStatus")->name('batalStatus');
 
             });
         });
