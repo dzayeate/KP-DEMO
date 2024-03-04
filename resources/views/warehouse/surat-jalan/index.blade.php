@@ -95,7 +95,7 @@
 
                             <td class="p-2 items-left justify-left hidden col-span-1 space-x-2 sm:flex">
 
-                                <button id="updateProductButton" data-modal-target="updateProductModal" data-modal-toggle="updateProductModal" data-tooltip-target="icons-example-mobile-tooltip" class="flex items-center justify-center w-9 h-9 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-mobile-view hover:bg-blue-500 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
+                                <button id="updateProductButton" data-modal-target="updateProductModal-{{ $item->id }}" data-modal-toggle="updateProductModal-{{ $item->id }}" data-tooltip-target="icons-example-mobile-tooltip" class="flex items-center justify-center w-9 h-9 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-mobile-view hover:bg-blue-500 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type="button">
 
 
                                         <span  class="sr-only">View</span>
@@ -105,7 +105,7 @@
 
                                 </button>
                                     <!-- Update modal -->
-                                    <div id="updateProductModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
+                                    <div id="updateProductModal-{{ $item->id }}" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
                                         <div class="relative p-4 w-full max-w-6xl h-full md:h-auto">
                                             <!-- Modal content -->
                                             <div class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
@@ -114,27 +114,22 @@
                                                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                                                         Verifikasi Surat Jalan
                                                     </h3>
-                                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="updateProductModal">
+                                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="updateProductModal-{{ $item->id }}">
                                                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                                                         <span class="sr-only">Close modal</span>
                                                     </button>
                                                 </div>
                                                 <!-- Modal body -->
-                                                <form action="#">
                                                     <div class="grid gap-4 mb-4 ">
                                                         <div>
                                                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Surat Jalan</label>
-                                                            <input type="text" name="name" id="name" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" readonly >
+                                                            <input type="text" value="{{ $item->no_surat_jalan }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" readonly >
                                                         </div>
                                                         <div>
                                                             <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No. Bukti Transfer Gudang</label>
-                                                            <input type="text" name="brand" id="brand" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" readonly>
+                                                            <input type="text"  value="{{ $item->no_bukti_transfer_gudang}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" readonly>
                                                         </div>
 
-                                                        <div>
-                                                            <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status Barang</label>
-                                                            <input type="text" name="brand" id="brand" value="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" readonly>
-                                                        </div>
                                                         <div></div>
                                                         <div class="overflow-x-auto pb-4">
                                                             <table id="barang-table" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -150,7 +145,28 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                <!-- Data barang akan dimasukkan di sini menggunakan JavaScript -->
+                                                                @foreach($item->transfer->barangTransfer as $barang)
+                                                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                    <td class="px-4 py-3">
+                                                                        <p>{{ $loop->iteration }}</p>
+                                                                    </td>
+                                                                    <td class="px-4 py-3">
+                                                                        <p>{{ $barang->barang->nama_barang }}</p>
+                                                                    </td>
+                                                                    <td class="px-4 py-3">
+                                                                        <p>{{ $barang->barang->stock  }}</p>
+                                                                    </td>
+                                                                    <td class="px-4 py-3">
+                                                                        <p>{{ $barang->barang->satuan }}</p>
+                                                                    </td>
+                                                                    <td class="px-4 py-3">
+                                                                        <p>{{ $barang->barang->jenis_barang  }}</p>
+                                                                    </td>
+                                                                    <td class="px-4 py-3">
+                                                                        <p>{{ $barang->barang->keterangan  }}</p>
+                                                                    </td>
+                                                                </tr>
+                                                                @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -160,17 +176,27 @@
                                                     </div>
 
                                                     <div class="mt-5 flex items-center space-x-6">
+                                                    <form action="{{ route('warehouse.surat-jalan.validStatus', ['id' =>$item->id]) }}" method="post">
+                                                        @csrf
+                                                        @method('PUT')
                                                         <button type="submit" class="text-green-500 inline-flex items-center hover:text-white border border-green-500 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-500">
                                                             Validasi Barang
                                                         </button>
-                                                        <button type="button" class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                     </form>
+                                                     <form action="{{ route('warehouse.surat-jalan.batalStatus', ['id' =>$item->id]) }}" method="post">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button type="submit" class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
                                                             Batal Validasi
                                                         </button>
+                                                    </form>
+
+                                                    <form action="{{ route('warehouse.surat-jalan.cetakSuratJalan', ['id' => $item->id]) }}" method="get" target="_blank">
                                                         <button type="submit" class="text-blue-500 inline-flex items-center hover:text-white border border-blue-500 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-green-500">
                                                             Cetak Surat
                                                         </button>
+                                                    </form>
                                                     </div>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
